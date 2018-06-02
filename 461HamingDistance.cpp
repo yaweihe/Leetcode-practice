@@ -29,17 +29,13 @@ def HammingDistance(s1,s2):
 class Solution{
 public:
 	int HammingDistance(int x, int y){
-		
-		if(x.size() != y.size()){
-			throw ("Undefined for sequence of unequal length")
-		}
-		int z = x^y;
-		int count =0;
-		while(z){
-			count++;
-			z &= z-1;
-		}
-		
-		return count;
+        int temp = x^y, cnt = 0;
+        while(temp != 0){
+            if(temp &1){
+                cnt++;
+            }
+            temp >>= 1;
+        }
+        return cnt;
 	}
 }
