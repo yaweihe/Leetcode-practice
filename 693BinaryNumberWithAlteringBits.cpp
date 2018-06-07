@@ -25,3 +25,39 @@ Output: True
 Explanation:
 The binary representation of 10 is: 1010.
 */
+
+class Solution {
+public:
+    bool hasAlternatingBits(int n) {
+        //method one
+        /*
+			int bit = -1;
+			while(n > 0){
+				if (n &1 == 1){
+					if(bit ==1)
+						return false;
+					bit = 1;
+				}
+				else{
+					if(bit == 0)
+						return false;
+					bit = 0;
+				}
+				n >>= 1;
+			}
+			return true;
+        */
+
+        /*
+        	method two
+        	n = 10101
+        	n >> 1 = 1010
+        	n + n>>1 = 11111
+        	n + n>>1 + 1= 100000
+        	(n + n>>1 + 1 )&(n+ n>>1) = 0;
+        */
+        return ((n + (n>>1) + 1) & (n + (n>>1))) == 0;
+
+
+    }
+};
