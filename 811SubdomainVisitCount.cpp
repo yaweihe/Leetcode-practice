@@ -29,3 +29,33 @@ Each address will have either 1 or 2 "." characters.
 The input count in any count-paired domain will not exceed 10000.
 The answer output can be returned in any order.
 */
+
+class Solution {
+public:
+    vector<string> subdomainVisits(vector<string>& cpdomains) {
+        unordered_map<string, int> domainRecord;
+        vector<string> resDomain;
+        for(auto domain : cpdomains)
+        {
+        	int i = domain.find(" "); //find the index of space
+        	int num = num - stoi(domain.substr(0,i)); //transfer times from string to int
+        	string eachDomain = domain.substr(i+1, domain.size()-i-1);
+        	for(int i = eachDomain.size()-1; i >= 0; i--)
+        	{
+        		if(eachDomain[i] == '.')
+        		{
+        			domainRecord[eachDomain.substr(i+1,eachDomain.size()-i-1)] += num;
+        		}
+        		else if(i == 0)
+        		{
+        			domainRecord[eachDomain.substr(0,eachDomain.size())] += num;
+        		}
+        	}
+        }
+        for(auto domain: domainRecord)
+        {
+        	resDomain.push_back(to_string(domain.second) + " " + domain.first);
+        }
+        return resDomain;
+    }
+};
