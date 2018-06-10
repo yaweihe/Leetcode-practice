@@ -13,45 +13,32 @@ using namespace std;
 class Solution{
 public:
 	vector<int> twoSum(vector<int>& nums, int &target){
-		vector<int> res;
-		unsigned count = 0;
-		for (unsigned i = 0; i < nums.size(); ++i){
-			count++;
-			for (unsigned j = i+1; j < nums.size(); ++j){
-				if (nums.at(j) == target - nums.at(i)){
-					res.push_back(i);
-					res.push_back(j);
-					//return res;
+        /*
+        vector<int> res;
+        for(int i =0; i < nums.size(); ++i){
+            for(int j = i+1; j < nums.size(); j++){
+                if(target == nums[i] + nums[j]){
+                    res.push_back(i);
+                    res.push_back(j);
+                    return res;
+         
 				}
 			}
 		}
-
-		cout << res.empty() << endl;
-		if (res.empty() == 1){
-			res = nums;
-		}
-		return res;
-	}
-} sol;
-
-int main(int argc, char const *argv[])
-{
-	vector<int> a1 = {2,7,11,15};
-	int b1 = 19;
-	int out;
-
-	vector<int> p = sol.twoSum(a1,b1);
-
-	ap == p ? out = 0 : out = 1;
-
-	if (out == 0){
-		cout << "no sum found" << endl;
-	}
-
-	else{
-		for (unsigned i = 0; i< p.size(); i++){
-			cout << p.at(i) <<endl;
-		}
-	}
-	return 0;
-}
+    }   */
+        unordered_map<int,int> MapValueToIndex; // prevent repeated numbers
+        for(int i =0; i < nums.size(); ++i){
+            const int first = nums[i];
+            const int second = target - nums[i];
+            auto FindResult = MapValueToIndex.find(second);
+            if(FindResult != MapValueToIndex.end())
+            {
+                return{i, FindResult->second};
+            }
+            else{
+                MapValueToIndex[nums[i]] = i;
+            }
+        }
+        return{};
+    }
+};
