@@ -42,5 +42,9 @@ public:
 
 		nums.resize(k+1);
 		return k+1;
+        
+        // use STL
+        
+        //return distance(nums.begin(), unique(nums.begin(),nums.end(),nums.begin()));
 	}
 }
