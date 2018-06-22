@@ -32,5 +32,9 @@ public:
 				sum = 0;
 		}
 		return maxsum;
+
+		/*分治
+
+		*/
 	}
 }
