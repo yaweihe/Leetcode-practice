@@ -19,6 +19,7 @@ class Solution(object):
 
         '''
 		#iteration
+        #use stack
 		stack = [(p,q)]
 		while stack:
 			p,q = stack.pop()
@@ -35,6 +36,7 @@ class Solution(object):
         '''
 
         '''
+            #use queue
 		queue = [(p,q)]
 		while len(queue) != 0:
 			p,q = queue.pop()
