@@ -23,3 +23,8 @@ class Solution(object):
         	nums1[icur] = nums2[ib]
         	icur -= 1
         	ib -= 1
+
+        '''
+        nums1[m:m+n] = nums2[:n]
+        nums1.sort()
+        '''
