@@ -22,6 +22,7 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
 //贪心法，分别找到价格最低和最高的一天，低进高出，注意最低的一天要在最高的一天之前
 
+
 class Solution{
 public:
 	int maxProfit(vector<int> &prices){
