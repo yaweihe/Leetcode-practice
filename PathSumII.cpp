@@ -42,5 +42,7 @@ private:
 		}
 		pathSum(root->left, gap - root->val, cur, result);
 		pathSum(root->right, gap - root->val, cur, result);
+
+		cur.pop_back();
 	}
 }
