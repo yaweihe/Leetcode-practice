@@ -24,3 +24,51 @@ Notes:
     You may assume that all operations are valid (for example, no pop or peek operations will be called on an empty queue).
 
 */
+// 
+class MyQueue {
+	stack<int>q1,helper;
+public:
+    /** Initialize your data structure here. */
+    MyQueue() {
+        
+    }
+    
+    /** Push element x to the back of queue. */
+    void push(int x) {
+        while(!q1.empty()){
+            helper.push(q1.top());
+            q1.pop();
+        }
+        q1.push(x);
+        while(!helper.empty()){
+            q1.push(helper.top());
+            helper.pop();
+        }
+    }
+    
+    /** Removes the element from in front of queue and returns that element. */
+    int pop() {
+    	int res = q1.top();
+        q1.pop();
+        return res;
+    }
+    
+    /** Get the front element. */
+    int peek() {
+       return q1.top();
+    }
+    
+    /** Returns whether the queue is empty. */
+    bool empty() {
+        return q1.empty();
+    }
+};
+
+/**
+ * Your MyQueue object will be instantiated and called as such:
+ * MyQueue obj = new MyQueue();
+ * obj.push(x);
+ * int param_2 = obj.pop();
+ * int param_3 = obj.peek();
+ * bool param_4 = obj.empty();
+ */
