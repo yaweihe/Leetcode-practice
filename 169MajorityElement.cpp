@@ -19,6 +19,7 @@ Output: 2
 如果第一部分不等于第二部分，则遍历这一组数，记录这两个数的出现频率，返回为频率最大的，如果频率相同，返回谁都无所谓，因为在这里众数x肯定存在的，那么肯定会有至少两个x相连，如果不相连的话，那最后一个数字肯定是众数x。
 
 */
+{1,2,1,3,1,2,1,2}
 class Solution{
 public:
 	int majorityElement(vector<int> &nums){
@@ -39,7 +40,7 @@ public:
 
 
 /*
-	//hash table
+	//
  	int majorityElement(vector<int> &nums){
 		map<int,int> M;
 		map<int, int>::iterator it;
@@ -53,3 +54,25 @@ public:
 		return nums[0];
  	}
 */
+
+
+
+
+{1,2,1,3,1,2,1,2}
+
+	int majorityElement(vector<int> &nums){
+		int res = 0, count = 0;
+		for(int num : nums){
+			
+			if(count == 0){
+				count = 1;
+				res = num;
+			}
+			else if(num == res ) ++count;
+			else --count;
+		}
+
+		return res;
+
+
+	}

@@ -22,7 +22,7 @@ class MinStack(object):
         """
         if len(self.stack) != 0:
         	if len(self.min_stack) != 0 and self.stack[-1] == self.min_stack[-1]:
-        		self.min_stack.pop()
+        		self.min_stack.pop() 
         	self.stack.pop()
 
     def top(self):
