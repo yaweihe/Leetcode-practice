@@ -39,7 +39,7 @@ public:
 			binaryTreePaths(result, root->left, s + "->" + to_string(root->left->val));
 		}
 		if(root->right != NULL){
-			binaryTreePaths(result, root->right, s + "->" + to_string(root->left->val));
+			binaryTreePaths(result, root->right, s + "->" + to_string(root->right->val));
 		}
 	}
 	
@@ -51,3 +51,4 @@ public:
         return res;
     }
 };
+
